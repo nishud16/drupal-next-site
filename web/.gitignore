@@ -1,0 +1,29 @@
+core
+modules/contrib
+themes/contrib
+profiles
+sites/default/files/css
+sites/default/files/js
+sites/default/files/php
+sites/default/files/styles
+sites/default/files/translations
+libraries
+
+#configuration files which are env dependent
+sites/default/settings.*
+sites/default/services.*
+
+#core files
+index.php
+autoload.php
+INSTALL.txt
+README.md
+update.php
+web.config
+.htaccess
+.csslintrc
+.eslintignore
+.eslintrc.json
+.ht.router.php
+example.gitignore
+

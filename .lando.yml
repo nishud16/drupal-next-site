@@ -1,0 +1,20 @@
+name: drupalnextheadless
+recipe: drupal9
+config:
+  webroot: web
+  via: nginx
+  php: 8.1
+  database: mysql
+services:
+  database:
+    creds:
+      user: "admin"
+      password: "admin"
+      database: "headless"
+  solr:
+    type: solr:8.1
+    core: headless-index
+    config:
+      dir: search/solr/config
+  phpmyadmin:
+    type: phpmyadmin
