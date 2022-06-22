@@ -1,0 +1,9 @@
+uuid: cc4ce6b6-b281-499c-8692-b4154d164d5a
+langcode: en
+status: true
+dependencies: {  }
+id: jsonapi_search_api_facets__umami_content
+name: 'jsonapi_search_api_facets:umami_content'
+filter_key: filter
+url_processor: json_api
+breadcrumb: {  }

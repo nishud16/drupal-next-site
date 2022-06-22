@@ -1,0 +1,252 @@
+uuid: 03b01f71-0041-4a21-9a9f-de0143226df7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - field.storage.node.field_cooking_time
+    - field.storage.node.field_difficulty
+    - field.storage.node.field_ingredients
+    - field.storage.media.field_media_image
+    - field.storage.node.field_media_image
+    - field.storage.media.field_media_video_file
+    - field.storage.media.field_media_oembed_video
+    - field.storage.node.field_number_of_servings
+    - field.storage.node.field_preparation_time
+    - field.storage.node.field_recipe_category
+    - field.storage.node.field_recipe_instruction
+    - field.storage.node.field_tags
+    - search_api.server.solr
+  module:
+    - search_api_solr
+    - file
+    - media
+    - taxonomy
+    - search_api
+    - node
+third_party_settings:
+  search_api_solr:
+    finalize: false
+    commit_before_finalize: false
+    commit_after_finalize: false
+    debug_finalize: false
+    highlighter:
+      maxAnalyzedChars: 51200
+      fragmenter: gap
+      usePhraseHighlighter: true
+      highlightMultiTerm: true
+      preserveMulti: false
+      regex:
+        slop: 0.5
+        pattern: blank
+        maxAnalyzedChars: 10000
+      highlight:
+        mergeContiguous: false
+        requireFieldMatch: false
+        snippets: 3
+        fragsize: 0
+    mlt:
+      mintf: 1
+      mindf: 1
+      maxdf: 0
+      maxdfpct: 0
+      minwl: 0
+      maxwl: 0
+      maxqt: 100
+      maxntp: 2000
+      boost: false
+      interestingTerms: none
+    term_modifiers:
+      slop: 3
+      fuzzy: 1
+    advanced:
+      index_prefix: ''
+      collection: ''
+      timezone: ''
+    multilingual:
+      limit_to_content_language: false
+      include_language_independent: true
+id: umami_content
+name: umami-content
+description: ''
+read_only: false
+field_settings:
+  field_cooking_time:
+    label: 'Cooking time'
+    datasource_id: 'entity:node'
+    property_path: field_cooking_time
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_cooking_time
+  field_difficulty:
+    label: Difficulty
+    datasource_id: 'entity:node'
+    property_path: field_difficulty
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_difficulty
+  field_ingredients:
+    label: Ingredients
+    datasource_id: 'entity:node'
+    property_path: field_ingredients
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_ingredients
+  field_media_oembed_video:
+    label: 'Media Image » Media » Video URL'
+    datasource_id: 'entity:node'
+    property_path: 'field_media_image:entity:field_media_oembed_video'
+    type: string
+    dependencies:
+      config:
+        - field.storage.media.field_media_oembed_video
+        - field.storage.node.field_media_image
+      module:
+        - media
+  field_number_of_servings:
+    label: 'Number of servings'
+    datasource_id: 'entity:node'
+    property_path: field_number_of_servings
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_number_of_servings
+  field_preparation_time:
+    label: 'Preparation time'
+    datasource_id: 'entity:node'
+    property_path: field_preparation_time
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_preparation_time
+  field_recipe_category:
+    label: 'Recipe category'
+    datasource_id: 'entity:node'
+    property_path: field_recipe_category
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_recipe_category
+  field_recipe_instruction:
+    label: 'Recipe instruction'
+    datasource_id: 'entity:node'
+    property_path: field_recipe_instruction
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_recipe_instruction
+  field_tags:
+    label: Tags
+    datasource_id: 'entity:node'
+    property_path: field_tags
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_tags
+  name:
+    label: 'Media Image » Media » Name'
+    datasource_id: 'entity:node'
+    property_path: 'field_media_image:entity:name'
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_media_image
+      module:
+        - media
+  name_1:
+    label: 'Recipe category » Taxonomy term » Name'
+    datasource_id: 'entity:node'
+    property_path: 'field_recipe_category:entity:name'
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_recipe_category
+      module:
+        - taxonomy
+  name_2:
+    label: 'Tags » Taxonomy term » Name'
+    datasource_id: 'entity:node'
+    property_path: 'field_tags:entity:name'
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_tags
+      module:
+        - taxonomy
+  processed:
+    label: 'Recipe instruction » Processed text'
+    datasource_id: 'entity:node'
+    property_path: 'field_recipe_instruction:processed'
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_recipe_instruction
+  summary_processed:
+    label: 'Body » Processed summary'
+    datasource_id: 'entity:node'
+    property_path: 'body:summary_processed'
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.body
+  title:
+    label: 'Media Image » Media » Image » Title'
+    datasource_id: 'entity:node'
+    property_path: 'field_media_image:entity:field_media_image:title'
+    type: string
+    dependencies:
+      config:
+        - field.storage.media.field_media_image
+        - field.storage.node.field_media_image
+      module:
+        - media
+  url:
+    label: 'Media Image » Media » Image » File » URI » Root-relative file URL'
+    datasource_id: 'entity:node'
+    property_path: 'field_media_image:entity:field_media_image:entity:uri:url'
+    type: string
+    dependencies:
+      config:
+        - field.storage.media.field_media_image
+        - field.storage.node.field_media_image
+      module:
+        - file
+        - media
+  url_1:
+    label: 'Media Image » Media » Video file » File » URI » Root-relative file URL'
+    datasource_id: 'entity:node'
+    property_path: 'field_media_image:entity:field_media_video_file:entity:uri:url'
+    type: string
+    dependencies:
+      config:
+        - field.storage.media.field_media_video_file
+        - field.storage.node.field_media_image
+      module:
+        - file
+        - media
+datasource_settings:
+  'entity:node':
+    bundles:
+      default: true
+      selected: {  }
+    languages:
+      default: true
+      selected: {  }
+processor_settings:
+  add_url: {  }
+  aggregated_field: {  }
+  entity_type: {  }
+  language_with_fallback: {  }
+  rendered_item: {  }
+  solr_date_range: {  }
+tracker_settings:
+  default:
+    indexing_order: fifo
+options:
+  cron_limit: 50
+  index_directly: true
+  track_changes_in_references: true
+server: solr

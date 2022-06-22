@@ -7,6 +7,7 @@ sites/default/files/js
 sites/default/files/php
 sites/default/files/styles
 sites/default/files/translations
+sites/default/files/languages
 libraries
 
 #configuration files which are env dependent
