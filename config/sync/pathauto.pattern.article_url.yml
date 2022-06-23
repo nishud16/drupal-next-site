@@ -3,29 +3,20 @@ langcode: en
 status: true
 dependencies:
   module:
-    - language
     - node
 id: article_url
 label: 'article url'
 type: 'canonical_entities:node'
 pattern: 'article/[node:title]'
 selection_criteria:
-  3d41d23f-c824-4aba-b8bb-0b16c7c8b1fd:
+  a43deb7c-cd83-43fc-825d-a8a6d208d730:
     id: 'entity_bundle:node'
     negate: false
-    uuid: 3d41d23f-c824-4aba-b8bb-0b16c7c8b1fd
+    uuid: a43deb7c-cd83-43fc-825d-a8a6d208d730
     context_mapping:
       node: node
     bundles:
       article: article
-  d6c2f1b2-371d-4687-98d0-2bd0d0d2b5d4:
-    id: language
-    negate: false
-    uuid: d6c2f1b2-371d-4687-98d0-2bd0d0d2b5d4
-    context_mapping:
-      language: 'node:langcode:language'
-    langcodes:
-      en: en
 selection_logic: and
 weight: -10
 relationships:

@@ -250,8 +250,10 @@ display:
     position: 1
     display_options:
       rendering_language: '***LANGUAGE_language_interface***'
-      display_extenders: {  }
-      path: recipes
+      display_extenders:
+        jsonapi_views:
+          enabled: true
+      path: recipe
       menu:
         type: normal
         title: Recipes

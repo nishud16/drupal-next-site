@@ -3,29 +3,20 @@ langcode: en
 status: true
 dependencies:
   module:
-    - language
     - node
 id: recipe_url
 label: 'recipe url'
 type: 'canonical_entities:node'
-pattern: 'recipe/[node:nid]'
+pattern: 'recipe/[node:title]'
 selection_criteria:
-  2cc404e1-4f59-427e-ba91-01e6de4b8b68:
+  1ca17ea4-b04c-47fd-8c4f-d6be576b4d34:
     id: 'entity_bundle:node'
     negate: false
-    uuid: 2cc404e1-4f59-427e-ba91-01e6de4b8b68
+    uuid: 1ca17ea4-b04c-47fd-8c4f-d6be576b4d34
     context_mapping:
       node: node
     bundles:
       recipe: recipe
-  9f97048f-207d-4c0d-833e-5b909e808c0d:
-    id: language
-    negate: false
-    uuid: 9f97048f-207d-4c0d-833e-5b909e808c0d
-    context_mapping:
-      language: 'node:langcode:language'
-    langcodes:
-      en: en
 selection_logic: and
 weight: -5
 relationships:
