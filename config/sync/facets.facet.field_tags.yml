@@ -1,16 +1,16 @@
-uuid: e9578f20-9498-4f71-9798-0a29df9423f2
+uuid: b607f46e-8159-4bad-b91b-5fcaa1a1cc10
 langcode: en
 status: true
 dependencies:
   module:
     - jsonapi_search_api_facets
-id: recipe_category
-name: 'Recipe category'
+id: field_tags
+name: Tags
 weight: 0
 min_count: 1
-url_alias: recipe_category
+url_alias: field_tags
 facet_source_id: 'jsonapi_search_api_facets:umami_content'
-field_identifier: field_recipe_category
+field_identifier: field_tags
 query_operator: or
 hard_limit: 0
 exclude: false
@@ -35,7 +35,7 @@ widget:
 empty_behavior:
   behavior: none
 only_visible_when_facet_source_is_visible: true
-show_only_one_result: false
+show_only_one_result: true
 show_title: true
 processor_configs:
   active_widget_order:
@@ -56,6 +56,11 @@ processor_configs:
       sort: 40
     settings:
       sort: ASC
+  hide_non_narrowing_result_processor:
+    processor_id: hide_non_narrowing_result_processor
+    weights:
+      build: 40
+    settings: {  }
   hierarchy_processor:
     processor_id: hierarchy_processor
     weights:
@@ -66,12 +71,6 @@ processor_configs:
     weights:
       build: 5
     settings: {  }
-  show_siblings_processor:
-    processor_id: show_siblings_processor
-    weights:
-      build: 11
-    settings:
-      show_parent_siblings: true
   translate_entity:
     processor_id: translate_entity
     weights:

@@ -3,25 +3,24 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.body
     - field.storage.node.field_cooking_time
     - field.storage.node.field_difficulty
     - field.storage.node.field_ingredients
-    - field.storage.media.field_media_image
-    - field.storage.node.field_media_image
-    - field.storage.media.field_media_video_file
     - field.storage.media.field_media_oembed_video
+    - field.storage.node.field_media_image
     - field.storage.node.field_number_of_servings
     - field.storage.node.field_preparation_time
     - field.storage.node.field_recipe_category
     - field.storage.node.field_recipe_instruction
     - field.storage.node.field_tags
+    - field.storage.media.field_media_image
+    - field.storage.media.field_media_video_file
     - search_api.server.solr
   module:
     - search_api_solr
-    - file
     - media
     - taxonomy
+    - file
     - search_api
     - node
 third_party_settings:
@@ -184,14 +183,6 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_recipe_instruction
-  summary_processed:
-    label: 'Body » Processed summary'
-    datasource_id: 'entity:node'
-    property_path: 'body:summary_processed'
-    type: string
-    dependencies:
-      config:
-        - field.storage.node.body
   title:
     label: 'Media Image » Media » Image » Title'
     datasource_id: 'entity:node'
@@ -230,8 +221,9 @@ field_settings:
 datasource_settings:
   'entity:node':
     bundles:
-      default: true
-      selected: {  }
+      default: false
+      selected:
+        - recipe
     languages:
       default: true
       selected: {  }
