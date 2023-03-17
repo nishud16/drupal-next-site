@@ -11,6 +11,8 @@ services:
       user: "admin"
       password: "admin"
       database: "headless"
+    arguments:
+      [ '@?', '@?' ]
   solr:
     type: solr:8.1
     core: headless-index
@@ -18,3 +20,6 @@ services:
       dir: search/solr/config
   phpmyadmin:
     type: phpmyadmin
+proxy:
+  solr:
+    - admin.solr.lndo.site:8983
